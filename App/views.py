@@ -39,9 +39,3 @@ def edit_employee(request,emp_id):
 
     return render(request,'App/edit_employee.html',{'employee':employee})
 
-def delete_employee(request,emp_id):
-    employee = models.Employee.objects.get(id=emp_id)
-    if request.method == 'POST':
-        employee.delete()
-        return redirect('employee')
-    return render(request,'App/delete_employee.html',{'employee':employee})
